@@ -8,7 +8,7 @@ import profile_richard from './profile_richard.png'
 import profile_alison from './profile_alison.png'
 import profile_enrique from './profile_enrique.png'
 import profile_marco from './profile_marco.png'
-import profile_martin from './profile_martin.png'
+import profile_Ramgoat from './profile_Ramgoat.jpeg'
 import search_icon from './search_icon.png'
 import send_button from './send_button.svg'
 import menu_icon from './menu_icon.png'
@@ -35,7 +35,7 @@ const assets = {
     arrow_icon,
     code,
     bgImage,
-    profile_martin
+    profile_Ramgoat
 }
 
 export default assets;
@@ -53,9 +53,9 @@ export const userDummyData = [
     {
         "_id": "680f50e4f10f3cd28382ecf9",
         "email": "test2@greatstack.dev",
-        "fullName": "Martin Johnson",
-        "profilePic": profile_martin,
-        "bio": "Hi Everyone, I am Using QuickChat",
+        "fullName": "Ram Goat",
+        "profilePic": profile_Ramgoat,
+        "bio": "Nibba why are u lookin at this get a job ",
     },
     {
         "_id": "680f510af10f3cd28382ed01",
