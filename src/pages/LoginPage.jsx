@@ -9,7 +9,13 @@ const LoginPage = () => {
       const [password,setPassword]=useState("")
       const [bio,setBio]=useState("")
       const [isDataSubmitted,setIsDataSubmitted]=useState(false);
-
+      const onSubmitHandler=(event)=>{
+        event.preventDefault();
+        if(currstate === 'Sign up' && !isDataSubmitted){
+          setIsDataSubmitted(true)
+          return;
+        }
+      }
   
   return (
    
@@ -25,12 +31,18 @@ const LoginPage = () => {
   </h1>
 </div>
       {/*------------right area----------------*/}
-      <form className='border-2 bg-white/8 text-white border-gray-500 p-6 flex
-      flex-col gap-6 rounded-lg shadow-lg'>
-        <h2 className="flex items-center gap-3 text-xl font-medium">
-  {currstate}
-  <img src={assets.arrow_icon} alt="arrow" className='w-5 cursor-pointer opacity-80' />
-  </h2>
+      <form onSubmit={onSubmitHandler} className='border-2 bg-white/8 text-white border-gray-500 p-8 w-[380px] flex
+      flex-col gap-7 rounded-lg shadow-lg'>
+        <h2 className="flex items-center justify-between text-xl font-medium">
+  <span>{currstate}</span>
+  {isDataSubmitted && <img onClick={()=> setIsDataSubmitted(false)}
+    src={assets.arrow_icon}
+    alt="arrow"
+    className="w-5 cursor-pointer opacity-80"
+  />}
+  
+</h2>
+
   {currstate === "Sign up" && !isDataSubmitted &&  (
     <input onChange={(e)=>setFullname(e.target.value)} value={fullname}
     type="text" className='p-2 border border-gray-500 rounded-md 
@@ -61,10 +73,24 @@ const LoginPage = () => {
     text-white rounded-md cursor-pointer'>
       {currstate === "Sign up" ? "Create Account" : "Login Now"}
     </button>
-    <div>
-      <input type="checkbox" />
-      <p>Agree to our terms of use & privacy policy.</p>
-      </div>
+    <div className="flex items-start gap-2">
+  <input type="checkbox" className="mt-1" />
+  <p className="text-sm text-gray-400">
+    Agree to our terms of use & privacy policy.
+  </p>
+</div>
+<div className='flex flex-col gap-2'>
+  {currstate  === "Sign up" ? (
+    <p className='text-sm text-gray-600'>Already have an account? <span 
+      onClick={()=>{setCurrstate("Login"); setIsDataSubmitted(false)}}
+    className='font-medium text-violet-500 cursor-pointer'>Login here</span></p>
+  ) : (
+    <p className='text-sm text-gray-600'>Create an account <span onClick={()=>setCurrstate("Sign up")}
+    className='font-medium text-violet-500 cursor-pointer'>Click here</span> </p>
+  )}
+
+</div>
+
 
   </form>
   </div>
