@@ -3,7 +3,7 @@ import assets from '../assets/assets'
 
 const LoginPage = () => {
   
-      const [currstate,setCurrstate]=useState("Sign Up")
+      const [currstate,setCurrstate]=useState("Sign up")
       const [fullname,setFullname]=useState("")
       const [email,setEmail]=useState("")
       const [password,setPassword]=useState("")
@@ -27,7 +27,7 @@ const LoginPage = () => {
       {/*------------right area----------------*/}
       <form className='border-2 bg-white/8 text-white border-gray-500 p-6 flex
       flex-col gap-6 rounded-lg shadow-lg'>
-        <h2 className="flex items-center gap-2 text-xl font-medium">
+        <h2 className="flex items-center gap-3 text-xl font-medium">
   {currstate}
   <img src={assets.arrow_icon} alt="arrow" className='w-5 cursor-pointer opacity-80' />
   </h2>
@@ -51,18 +51,21 @@ const LoginPage = () => {
     )}
     {
       currstate === "Sign up" && isDataSubmitted && (
-        <textarea onChange={()=>setBio(e.target.value)} value={bio} 
+        <textarea onChange={(e)=>setBio(e.target.value)} value={bio} 
         rows={4} className='p-2 border border-gray-500 rounded-md 
-        focus:outline-none focus:ring-2 focus:ring-indigo-500'>“How should others see you?”</textarea>
+        focus:outline-none focus:ring-2 focus:ring-indigo-500'
+        placeholder='How should others see you?' required></textarea>
       )
     }
-    <button>
+    <button type='submit' className='py-3 bg-gradient-to-r from-purple-400 to-violet-600 
+    text-white rounded-md cursor-pointer'>
       {currstate === "Sign up" ? "Create Account" : "Login Now"}
-      <div className='flex items-center gap-2 text-sm text-gray-500'>
-        <input type="checkbox" />
-        <p>Agree to the terms of use & privacy policy.</p>
-      </div>
     </button>
+    <div>
+      <input type="checkbox" />
+      <p>Agree to our terms of use & privacy policy.</p>
+      </div>
+
   </form>
   </div>
   )
