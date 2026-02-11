@@ -7,5 +7,5 @@ export const connectDB = async ()=>{
         await mongoose.connect(`${process.env.MONGODB_URI}/PingMate`)
     } catch(error){
         console.log(error);
-    }
-}
+    } 
+} 
